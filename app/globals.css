@@ -1,0 +1,668 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color scheme for modern speed test design */
+  --background: oklch(1 0 0); /* White background */
+  --foreground: oklch(0.2 0 0); /* Dark gray text */
+  --card: oklch(1 0 0); /* White cards */
+  --card-foreground: oklch(0.25 0 0); /* Card text */
+  --popover: oklch(0.98 0 0); /* Light popover */
+  --popover-foreground: oklch(0.2 0 0); /* Popover text */
+  --primary: oklch(0.45 0.15 160); /* Emerald primary color */
+  --primary-foreground: oklch(1 0 0); /* White text on primary */
+  --secondary: oklch(0.35 0 0); /* Dark gray secondary */
+  --secondary-foreground: oklch(1 0 0); /* White text on secondary */
+  --muted: oklch(0.96 0 0); /* Light gray muted */
+  --muted-foreground: oklch(0.25 0 0); /* Muted text */
+  --accent: oklch(0.55 0.15 160); /* Emerald accent */
+  --accent-foreground: oklch(1 0 0); /* White text on accent */
+  --destructive: oklch(0.55 0.22 25); /* Red for errors */
+  --destructive-foreground: oklch(1 0 0); /* White text on destructive */
+  --border: oklch(0.9 0 0); /* Light border */
+  --input: oklch(1 0 0); /* White input */
+  --ring: oklch(0.45 0.15 160 / 0.3); /* Emerald ring with opacity */
+  --chart-1: oklch(0.6 0.2 270); /* Purple for charts */
+  --chart-2: oklch(0.55 0.15 160); /* Emerald for charts */
+  --chart-3: oklch(0.7 0.15 85); /* Yellow for charts */
+  --chart-4: oklch(0.55 0.22 25); /* Red for charts */
+  --chart-5: oklch(0.65 0.25 350); /* Pink for charts */
+  --radius: 0.5rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.2 0 0);
+  --sidebar-primary: oklch(0.45 0.15 160);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.55 0.15 160);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: oklch(0.45 0.15 160 / 0.3);
+}
+
+.dark {
+  /* Enhanced dark mode colors inspired by Speedtest.net */
+  --background: oklch(0.05 0.02 240); /* Deep blue-black background */
+  --foreground: oklch(0.95 0 0); /* Light text */
+  --card: oklch(0.08 0.02 240); /* Dark blue cards */
+  --card-foreground: oklch(0.95 0 0); /* Light card text */
+  --popover: oklch(0.08 0.02 240); /* Dark popover */
+  --popover-foreground: oklch(0.95 0 0); /* Light popover text */
+  --primary: oklch(0.6 0.2 180); /* Cyan primary like Speedtest */
+  --primary-foreground: oklch(0.05 0.02 240); /* Dark text on primary */
+  --secondary: oklch(0.15 0.02 240); /* Dark blue secondary */
+  --secondary-foreground: oklch(0.95 0 0); /* Light text on secondary */
+  --muted: oklch(0.12 0.02 240); /* Dark blue muted */
+  --muted-foreground: oklch(0.7 0 0); /* Muted text */
+  --accent: oklch(0.65 0.2 180); /* Bright cyan accent */
+  --accent-foreground: oklch(0.05 0.02 240); /* Dark text on accent */
+  --destructive: oklch(0.6 0.22 25); /* Bright red for errors */
+  --destructive-foreground: oklch(0.95 0 0); /* Light text on destructive */
+  --border: oklch(0.15 0.02 240); /* Dark blue border */
+  --input: oklch(0.08 0.02 240); /* Dark input */
+  --ring: oklch(0.6 0.2 180 / 0.3); /* Cyan ring with opacity */
+  --chart-1: oklch(0.65 0.2 270); /* Purple for charts */
+  --chart-2: oklch(0.6 0.2 180); /* Cyan for charts */
+  --chart-3: oklch(0.75 0.15 85); /* Yellow for charts */
+  --chart-4: oklch(0.6 0.22 25); /* Red for charts */
+  --chart-5: oklch(0.7 0.25 350); /* Pink for charts */
+  --radius: 0.5rem;
+  --sidebar: oklch(0.08 0.02 240);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.6 0.2 180);
+  --sidebar-primary-foreground: oklch(0.05 0.02 240);
+  --sidebar-accent: oklch(0.65 0.2 180);
+  --sidebar-accent-foreground: oklch(0.05 0.02 240);
+  --sidebar-border: oklch(0.15 0.02 240);
+  --sidebar-ring: oklch(0.6 0.2 180 / 0.3);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added consistent typography system with Inter and JetBrains Mono */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Monaco, Consolas,
+    "Courier New", monospace;
+
+  /* Typography scale for consistent sizing */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);
+  --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);
+  --text-6xl: clamp(3.75rem, 3rem + 3.75vw, 5rem);
+
+  /* Display text for hero sections */
+  --text-display: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Added consistent typography classes */
+  .text-display {
+    font-size: var(--text-display);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .text-body {
+    font-size: var(--text-body);
+    line-height: 1.6;
+    color: oklch(0.7 0 0);
+  }
+
+  .text-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Improved focus states for better accessibility */
+  .focus-visible {
+    outline: 2px solid oklch(0.6 0.2 180);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Enhanced animations and improved responsiveness */
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Enhanced wave animations with better performance and smoother motion */
+@keyframes wave-layer-1 {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-50px) translateY(-8px);
+  }
+  50% {
+    transform: translateX(0) translateY(-15px);
+  }
+  75% {
+    transform: translateX(50px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes wave-layer-2 {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(40px) translateY(-12px);
+  }
+  50% {
+    transform: translateX(0) translateY(-8px);
+  }
+  75% {
+    transform: translateX(-40px) translateY(-18px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes wave-layer-3 {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-30px) translateY(-5px);
+  }
+  50% {
+    transform: translateX(0) translateY(-20px);
+  }
+  75% {
+    transform: translateX(30px) translateY(-10px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.wave-layer-1 {
+  animation: wave-layer-1 8s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.wave-layer-2 {
+  animation: wave-layer-2 12s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.wave-layer-3 {
+  animation: wave-layer-3 10s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.wave-animation {
+  animation: wave 4s ease-in-out infinite;
+}
+
+.wave-animation:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.wave-animation:nth-child(3) {
+  animation-delay: 1s;
+}
+.wave-animation:nth-child(4) {
+  animation-delay: 1.5s;
+}
+.wave-animation:nth-child(5) {
+  animation-delay: 2s;
+}
+.wave-animation:nth-child(6) {
+  animation-delay: 2.5s;
+}
+.wave-animation:nth-child(7) {
+  animation-delay: 3s;
+}
+
+.pulse-ring {
+  animation: pulse-ring 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Professional loading spinner */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced custom scrollbar styling with better contrast */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.08 0.02 240);
+  border-radius: 6px;
+  border: 1px solid oklch(0.12 0.02 240);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, oklch(0.6 0.2 180), oklch(0.55 0.18 180));
+  border-radius: 6px;
+  border: 1px solid oklch(0.5 0.15 180);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, oklch(0.65 0.2 180), oklch(0.6 0.18 180));
+  box-shadow: 0 0 8px oklch(0.6 0.2 180 / 0.3);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, oklch(0.7 0.2 180), oklch(0.65 0.18 180));
+}
+
+::-webkit-scrollbar-corner {
+  background: oklch(0.08 0.02 240);
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.6 0.2 180) oklch(0.08 0.02 240);
+}
+
+/* Enhanced wave animations for footer */
+@keyframes wave-flow {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-25px) translateY(-10px);
+  }
+  50% {
+    transform: translateX(0) translateY(-5px);
+  }
+  75% {
+    transform: translateX(25px) translateY(-15px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes wave-reverse {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(25px) translateY(-5px);
+  }
+  50% {
+    transform: translateX(0) translateY(-10px);
+  }
+  75% {
+    transform: translateX(-25px) translateY(-8px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.wave-animation {
+  animation: wave-flow 6s ease-in-out infinite;
+}
+
+.wave-animation-reverse {
+  animation: wave-reverse 8s ease-in-out infinite;
+}
+
+/* Improved responsive grid layout */
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Enhanced backdrop blur effects */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Smooth focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid oklch(0.6 0.2 180);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Professional card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px oklch(0.6 0.2 180 / 0.1);
+}
+
+/* Adding particle background animation system */
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: oklch(0.6 0.2 180 / 0.3);
+  border-radius: 50%;
+  animation: particle-float 20s linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) translateX(10px) scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(10vh) translateX(-10px) scale(1);
+  }
+  100% {
+    transform: translateY(-10vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+}
+
+.particle:nth-child(2n) {
+  background: oklch(0.65 0.2 180 / 0.2);
+  animation-duration: 25s;
+  width: 3px;
+  height: 3px;
+}
+
+.particle:nth-child(3n) {
+  background: oklch(0.7 0.15 160 / 0.25);
+  animation-duration: 18s;
+  width: 1px;
+  height: 1px;
+}
+
+.particle:nth-child(4n) {
+  background: oklch(0.55 0.25 200 / 0.3);
+  animation-duration: 22s;
+}
+
+/* WiFi button styling with animated signal rings */
+.wifi-button {
+  position: relative;
+  overflow: visible;
+}
+
+.wifi-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid oklch(0.6 0.2 180 / 0.3);
+  border-radius: 50%;
+  animation: wifi-pulse 3s ease-out infinite;
+}
+
+.wifi-ring-1 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+}
+
+.wifi-ring-2 {
+  width: 120%;
+  height: 120%;
+  animation-delay: 1s;
+}
+
+.wifi-ring-3 {
+  width: 140%;
+  height: 140%;
+  animation-delay: 2s;
+}
+
+@keyframes wifi-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Enhanced responsive design for mobile devices */
+@media (max-width: 768px) {
+  .wifi-button {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .particle {
+    animation-duration: 15s;
+  }
+
+  .particles-container .particle:nth-child(n + 30) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .wifi-button {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .particles-container .particle:nth-child(n + 20) {
+    display: none;
+  }
+}
+
+/* Improved card animations and hover effects */
+.speed-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid oklch(0.15 0.02 240);
+}
+
+.speed-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px oklch(0.6 0.2 180 / 0.15);
+  border-color: oklch(0.6 0.2 180 / 0.3);
+}
+
+/* Enhanced loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, oklch(0.08 0.02 240) 0%, oklch(0.12 0.02 240) 50%, oklch(0.08 0.02 240) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Professional button hover effects */
+.btn-primary {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -5px oklch(0.6 0.2 180 / 0.3);
+}
+
+/* Smooth tab transitions */
+.tab-content {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced accessibility focus indicators */
+.focus-ring:focus-visible {
+  outline: 2px solid oklch(0.6 0.2 180);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Improved performance with GPU acceleration */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.wifi-button,
+.particle,
+.wave-animation,
+.wifi-ring {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
