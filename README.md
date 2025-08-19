@@ -4,6 +4,10 @@
 
 Netest is a modern, responsive web application for testing your internet connection speed. It provides detailed metrics including ping, download speed, upload speed, and network information. Built with Next.js, TypeScript, and Tailwind CSS.
 
+<div align="center">
+  <img src="/public/project/awal.png" alt="Netest Speed Test Interface" width="80%" style="border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+</div>
+
 ## 🌟 Features
 
 - 🚀 Real-time speed testing (ping, download, upload)
@@ -14,6 +18,15 @@ Netest is a modern, responsive web application for testing your internet connect
 - 📈 Performance metrics and connection quality rating
 - 📺 Platform compatibility check (YouTube, Netflix, Disney+, etc.)
 - 📡 Network diagnostics and recommendations
+
+## 🖼 More Screenshots
+
+<div align="center">
+  <img src="/public/project/analytics.png" alt="Analytics Dashboard" width="45%" style="border-radius: 8px; margin: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />
+  <img src="/public/project/streaming.png" alt="Streaming Platform Check" width="45%" style="border-radius: 8px; margin: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />
+  <img src="/public/project/gaming.png" alt="Gaming Performance" width="45%" style="border-radius: 8px; margin: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />
+  <img src="/public/project/brand.png" alt="Branding" width="90%" style="border-radius: 8px; margin: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />
+</div>
 
 ## 🛠 Tech Stack
 
